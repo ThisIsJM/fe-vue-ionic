@@ -3,11 +3,13 @@ import { ref } from 'vue';
 import Logo from '../components/Logo.vue'
 import { User } from '../models/User'
 import {loginUser} from '../controllers/UserController'
+import router from '../router/index'
 
     const user = ref<User>({id: 0, username:'', password:''})
 
     const submitHandler = async() => {
         await loginUser(user.value)
+        router.push('/Home')
     }
 </script>
 
