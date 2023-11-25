@@ -1,9 +1,10 @@
 <script setup lang="ts">
-
+    import Logo from '../components/Logo.vue'
+    import router from '../router/index'
 </script>
 
 <template>
-<div className ="flex items-center justify-center h-screen m-0 bg-primary">
-        <div className="h-32 w-32 bg-white text-center"> Logo goes here</div>
-</div>
+    <div @click="router.push('/login')" className ="flex items-center justify-center h-screen m-0 bg-primary">
+        <Logo/>
+    </div>
 </template>
