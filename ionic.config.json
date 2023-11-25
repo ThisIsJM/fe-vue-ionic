@@ -1,0 +1,7 @@
+{
+  "name": "fe-vue-ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
