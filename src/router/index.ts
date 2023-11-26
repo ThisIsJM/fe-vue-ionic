@@ -3,6 +3,7 @@ import LoginView from '@/views/LoginView.vue'
 import StartView from '@/views/StartView.vue'
 import HomeView from '@/views/HomeView.vue'
 import OrderView from '@/views/OrderView.vue'
+import DishView from '@/views/DishView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,11 @@ const router = createRouter({
       path: '/Order',
       name: 'order',
       component: OrderView
+    },
+    {
+      path: '/Order/Dish/:id',
+      name: 'dish',
+      component: DishView,
     }
   ]
 })

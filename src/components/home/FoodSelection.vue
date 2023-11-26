@@ -1,12 +1,8 @@
 <script setup lang="ts">
-    import { Dish } from '../../models/Dish';
     import FoodItem from '../FoodItem.vue';
+    import {dishes} from '../../utils/constants'
 
-    const dishes: Dish[] = [
-        { name: "Spaghetti Bolognese", type: "Pasta", price: 12.99, rating: 4 },
-        { name: "Grilled Chicken Salad", type: "Salad", price: 9.99, rating: 2 },
-        { name: "Margherita Pizza", type: "Pizza", price: 15.99, rating: 3 },
-    ];
+
 </script>
 
 <template>
