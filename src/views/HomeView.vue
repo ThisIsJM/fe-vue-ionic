@@ -7,6 +7,7 @@ import SpecialOffers from '../components/home/SpecialOffers.vue'
 import Categories from '../components/home/Categories.vue'
 import NewItems from '../components/home/NewItems.vue'
 import FoodSelection from '../components/home/FoodSelection.vue'
+import router from '../router';
 </script>
 
 <template>
@@ -40,6 +41,10 @@ import FoodSelection from '../components/home/FoodSelection.vue'
                 <FoodSelection/>
             </div>
         </div>
+
+        <button @click="router.push('/order')" class="btn btn-primary font-bold rounded-2xl h-fit w-fit p-5 px-10 m-5 fixed bottom-0 right-0">
+            Order Now!
+        </button>
     </div>
     
 </template>
