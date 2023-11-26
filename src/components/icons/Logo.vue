@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import ReverseLogo from '../assets/reverse-logo.svg';
-import Logo from '../assets/logo.svg';
+import ReverseLogo from '../../assets/reverse-logo.svg';
+import Logo from '../../assets/logo.svg';
 
     const props = withDefaults(defineProps<{
         width: number

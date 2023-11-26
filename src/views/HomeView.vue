@@ -28,7 +28,7 @@ import SearchInput from '../components/home/SearchInput.vue'
         </div>
 
         <div>
-
+            
         </div>
     </div>
     

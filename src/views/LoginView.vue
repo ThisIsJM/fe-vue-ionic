@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Logo from '../components/Logo.vue'
+import Logo from '../components/icons/Logo.vue'
 import { User } from '../models/User'
 import {loginUser} from '../controllers/UserController'
 import router from '../router/index'
