@@ -11,7 +11,7 @@
 
         <div className="mt-2">
             <div className="w-full shadow-2xl rounded-2xl">
-                <img class="rounded-2xl" :src="generateRandomImage()" alt="Shoes" />
+                <img class="rounded-2xl h-48 w-full" :src="generateRandomImage()" alt="Shoes" />
             </div>
         </div>
     </div>  
