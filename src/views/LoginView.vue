@@ -15,7 +15,7 @@ import router from '../router/index'
 
 <template>
 <div className=" form-control my-10 mx-5 text-gray-500">
-    <Logo/>
+    <Logo :width="100" :height="100" :reverse-color="false"/>
     <div className="my-10">
         <h1 className=" text-2xl font-bold tracking-wide mb-4 text-gray-900">Bonjour!</h1>
         <p className="text-xs leading-relaxed">Welcome to all new FastFood mobile app. Kindly login your account. Thank you!</p>

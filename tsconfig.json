@@ -2,7 +2,8 @@
   "files": [],
   "include": [
     "./src/**/*.ts",
-    "./src/**/*.vue"
+    "./src/**/*.vue",
+    "./src/**/*.svg"
   ],
   "references": [
     {

@@ -5,6 +5,6 @@
 
 <template>
     <div @click="router.push('/login')" className ="flex items-center justify-center h-screen m-0 bg-primary">
-        <Logo/>
+        <Logo :width="200" :height="200" :reverseColor="true"/>
     </div>
 </template>
