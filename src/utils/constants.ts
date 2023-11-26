@@ -1,1 +1,1 @@
-export const generateRandomImage= () => 'https://source.unsplash.com/random/?food-' +  Math.floor(Math.random() * 9) + 1
+export const generateRandomImage= () => 'https://source.unsplash.com/random/?food-' +  Math.floor(Math.random() * 100) + 1
