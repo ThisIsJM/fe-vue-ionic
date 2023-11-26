@@ -9,5 +9,3 @@ export const dishes: Dish[] = [
     {id: 1, name: "Grilled Chicken Salad", type: "Salad", price: 9.99, rating: 2 },
     {id: 2, name: "Margherita Pizza", type: "Pizza", price: 15.99, rating: 3 },
 ];
-
-export const getDish = (id: number) => dishes.find(dish => dish.id == id)
