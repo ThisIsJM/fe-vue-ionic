@@ -32,6 +32,8 @@ import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
 
     watch(() => order.item.amount, () => order.totalPrice = computeDishPrice(order.item))
 
+    watch(order, (newOrder) => console.log(newOrder.addOns))
+
 </script>
 <template>
     <div class="p-5">
@@ -58,15 +60,15 @@ import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
             <p class="text-sm leading-5 text-gray-500">{{ dish.description }}</p>
             
             <div class="flex flex-row justify-between w-full">
-                <p class="text-2xl font-medium text-primary">P {{ order.totalPrice }}</p>
+                <p class="text-2xl font-medium text-primary">P {{ dish.price }}</p>
 
                 <div class="flex flex-row gap-x-5 items-baseline">
-                    <button @click="onAmountSubtract" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-primary">
-                        <LeftArrowIcon/>
+                    <button @click="onAmountSubtract" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-primary text-lg">
+                        -
                     </button>
                     <p class=" font-medium">{{ order.item.amount }}</p>
-                    <button @click="onAmountAdd" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-primary">
-                        <LeftArrowIcon/>
+                    <button @click="onAmountAdd" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-primary text-lg">
+                        +
                     </button>
                 </div>
             </div>
@@ -84,7 +86,7 @@ import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
 
             <div>
                 <p class="text-xl font-medium">Add-Ons</p>
-                <AddOnsSelections :add-ons-items="order.addOns"/>
+                <AddOnsSelections :add-ons-items="order.addOns" v-model="order.addOns"/>
             </div>
 
         </div>
