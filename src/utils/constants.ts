@@ -48,17 +48,20 @@ export const addOns: AddOn[] = [
     imageUrl: generateRandomImage(),
     name: "Extra Parmesan",
     price: 2.99,
+    type: "Cheese", // Add the type property
   },
   {
     id: 1,
     imageUrl: generateRandomImage(),
     name: "Avocado",
     price: 1.99,
+    type: "Vegetable", // Add the type property
   },
   {
     id: 2,
     imageUrl: generateRandomImage(),
     name: "Extra Mozzarella",
     price: 1.49,
+    type: "Cheese", // Add the type property
   },
 ];
