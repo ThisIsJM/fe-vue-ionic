@@ -4,7 +4,9 @@ export const generateRandomImage= () => 'https://source.unsplash.com/random/?foo
 
 export const dishTypeSelections = ['All','Breakfast', 'Chicken', 'Meat', 'Dessert']
 
-export const beverages: string[] = ['Regular', 'Large', 'X-Large']
+export const beverages = ['Coke', 'Sprite', 'Pepsi']
+
+export const beverageSize: string[] = ['Regular', 'Large', 'X-Large']
 
 export const dishes: Dish[] = [
     {

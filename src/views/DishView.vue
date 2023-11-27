@@ -2,20 +2,34 @@
 import { useRoute } from 'vue-router';
 import { Dish } from '../models/Dish';
 import { getDishById } from '../controllers/DishController';
-import { ref } from 'vue';
+import { computed, reactive, ref, watch } from 'vue';
 import LeftArrowIcon from '../components/icons/LeftArrowIcon.vue';
 import ShopIcon from '../components/icons/ShopIcon.vue';
 import Ratings from '../components/Ratings.vue';
-import {beverages} from '../utils/constants'
+import {beverageSize} from '../utils/constants'
+import { Order, computeDishPrice } from '../models/Order';
+import { beverages } from '../utils/constants';
+import { Beverage } from '../models/Beverage';
 
     const route = useRoute()
     const id: number = Number(route.params.id)
 
     const dish = ref<Dish>(getDishById(id))
-    const amount = ref<number>(1)
 
-    const onAmountAdd = () => {amount.value++}
-    const onAmountSubtract = () => {amount.value > 0 && amount.value--}
+    const order = reactive<Order>({
+      item:{ dish: dish.value, amount: 1 },
+      beverage: { name: 'Coke', size: 'Regular' },
+      addOns: [],
+      totalPrice: dish.value.price * 1
+    })
+
+    const onAmountAdd = () => {order.item.amount++}
+    const onAmountSubtract = () => {order.item.amount > 1 && order.item.amount--}
+
+    const isSelectedSize = computed(() => (size) => size === order.beverage.size);
+
+    watch(() => order.item.amount, () => order.totalPrice = computeDishPrice(order.item))
+
 </script>
 <template>
     <div class="p-5">
@@ -42,13 +56,13 @@ import {beverages} from '../utils/constants'
             <p class="text-sm leading-5 text-gray-500">{{ dish.description }}</p>
             
             <div class="flex flex-row justify-between w-full">
-                <p class="text-2xl font-medium text-primary">P {{ dish.price }}</p>
+                <p class="text-2xl font-medium text-primary">P {{ order.totalPrice }}</p>
 
                 <div class="flex flex-row gap-x-5 items-baseline">
                     <button @click="onAmountSubtract" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-primary">
                         <LeftArrowIcon/>
                     </button>
-                    <p class=" font-medium">{{ amount }}</p>
+                    <p class=" font-medium">{{ order.item.amount }}</p>
                     <button @click="onAmountAdd" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-primary">
                         <LeftArrowIcon/>
                     </button>
@@ -57,19 +71,18 @@ import {beverages} from '../utils/constants'
 
             <div class="form-control gap-y-4">
                 <p class="text-xl font-medium">Beverages</p>
-                <select className="select select-bordered w-full max-w-xs">
-                    <option disabled selected>Who shot first?</option>
-                    <option>Han Solo</option>
-                    <option>Greedo</option>
+                <select v-model="order.beverage.name" className="select select-bordered w-full max-w-xs">
+                    <option v-for="beverage in beverages">{{ beverage }}</option>
                 </select>
 
                 <div class="grid grid-cols-3 gap-x-3 w-full">
-                    <button class="btn btn-secondary px-5 rounded-2xl " v-for="beverage in beverages">{{ beverage }}</button>
+                    <button @click="() => {order.beverage.size = size as Beverage['size']}" :class="{'bg-base-100 text-black border-gray-300': !isSelectedSize(size)}" class="btn btn-secondary px-5 rounded-2xl " v-for="size in beverageSize">{{ size }}</button>
                 </div>
             </div>
 
             <div>
-                
+                <p class="text-xl font-medium">Add-Ons</p>
+
             </div>
 
         </div>
