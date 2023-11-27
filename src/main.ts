@@ -4,8 +4,11 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { IonicVue } from '@ionic/vue';
+import { createPinia } from 'pinia'
 
-const app = createApp(App).use(IonicVue).use(router);
+const pinia = createPinia()
+
+const app = createApp(App).use(IonicVue).use(router).use(pinia);
 
 app.use(router)
 
