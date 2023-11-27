@@ -13,8 +13,10 @@ import { Beverage } from '../models/Beverage';
 import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
 import AddSuccessModal from '../components/dish/AddSuccessModal.vue'
 import router from '../router';
+import { useOrderStore } from '../stores/OrderStore'
 
     const route = useRoute()
+    const orderStore = useOrderStore()
     const id: number = Number(route.params.id)
 
     const onNavigateBack = () => {router.go(-1)}
@@ -37,7 +39,10 @@ import router from '../router';
     watch(() => order.item.amount, () => order.totalPrice = computeDishPrice(order.item))
 
     const openModal = ref<boolean>(false)
-    const onOpenModal = () => {openModal.value = !openModal.value}
+    const onAddToBag = () => {
+        orderStore.fill(order)
+        openModal.value = !openModal.value
+    }
 
 </script>
 <template>
@@ -95,7 +100,7 @@ import router from '../router';
             </div>
         </div>
         <div class="fixed inset-x-0 bottom-5 px-5 w-full block">
-            <button @click="onOpenModal" class="btn btn-primary w-full">Add to Bag</button>
+            <button @click="onAddToBag" class="btn btn-primary w-full">Add to Bag</button>
         </div>
     </div>
     <AddSuccessModal :open-modal="openModal"/>
