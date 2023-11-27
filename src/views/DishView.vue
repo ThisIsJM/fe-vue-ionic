@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { Dish } from '../models/Dish';
-import { getDishById } from '../controllers/DishController';
+import { getDishAddOns, getDishById } from '../controllers/DishController';
 import { computed, reactive, ref, watch } from 'vue';
 import LeftArrowIcon from '../components/icons/LeftArrowIcon.vue';
 import ShopIcon from '../components/icons/ShopIcon.vue';
@@ -10,16 +10,18 @@ import {beverageSize} from '../utils/constants'
 import { Order, computeDishPrice } from '../models/Order';
 import { beverages } from '../utils/constants';
 import { Beverage } from '../models/Beverage';
+import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
 
     const route = useRoute()
     const id: number = Number(route.params.id)
 
     const dish = ref<Dish>(getDishById(id))
+    const addOns = getDishAddOns(dish.value.addOnIds)
 
-    const order = reactive<Order>({
+    const order = reactive <Order>({
       item:{ dish: dish.value, amount: 1 },
       beverage: { name: 'Coke', size: 'Regular' },
-      addOns: [],
+      addOns: addOns.map((addOn) => ({ addOn, amount: 0, totalPrice: 0 })),
       totalPrice: dish.value.price * 1
     })
 
@@ -82,7 +84,7 @@ import { Beverage } from '../models/Beverage';
 
             <div>
                 <p class="text-xl font-medium">Add-Ons</p>
-
+                <AddOnsSelections :add-ons-items="order.addOns"/>
             </div>
 
         </div>

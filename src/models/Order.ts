@@ -1,10 +1,11 @@
+import type { AddOn } from "./AddOn"
 import type { Beverage } from "./Beverage"
 import type { Dish } from "./Dish"
 
 export  type Order={
     item: {dish: Dish, amount: number},
     beverage: Beverage,
-    addOns: {dish: Dish, ammount: number, totalPrice: number}[],
+    addOns: {addOn: AddOn, amount: number, totalPrice: number}[],
     totalPrice: number
 }
 
