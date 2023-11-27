@@ -11,6 +11,7 @@ import { Order, computeDishPrice } from '../models/Order';
 import { beverages } from '../utils/constants';
 import { Beverage } from '../models/Beverage';
 import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
+import AddSuccessModal from '../components/dish/AddSuccessModal.vue'
 
     const route = useRoute()
     const id: number = Number(route.params.id)
@@ -32,7 +33,8 @@ import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
 
     watch(() => order.item.amount, () => order.totalPrice = computeDishPrice(order.item))
 
-    watch(order, (newOrder) => console.log(newOrder.addOns))
+    const openModal = ref<boolean>(false)
+    const onOpenModal = () => {openModal.value = !openModal.value}
 
 </script>
 <template>
@@ -51,7 +53,7 @@ import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
             </div>
         </div>
 
-        <div class="form-control gap-y-5 mt-10">
+        <div class="form-control gap-y-5 mt-10 mb-20">
             <div className="w-full shadow-2xl rounded-2xl h-60 min-h-[15rem]">
                 <img class="rounded-2xl h-full w-full" :src="dish.imageUrl" alt="Shoes" />
             </div>
@@ -84,11 +86,14 @@ import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
                 </div>
             </div>
 
-            <div>
+            <div class="form-control gap-y-4">
                 <p class="text-xl font-medium">Add-Ons</p>
                 <AddOnsSelections :add-ons-items="order.addOns" v-model="order.addOns"/>
             </div>
-
+        </div>
+        <div class="fixed inset-x-0 bottom-5 px-5 w-full block">
+            <button @click="onOpenModal" class="btn btn-primary w-full">Add to Bag</button>
         </div>
     </div>
+    <AddSuccessModal :open-modal="openModal"/>
 </template>
