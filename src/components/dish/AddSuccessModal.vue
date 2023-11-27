@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import router from '../../router';
 import ThumbsUpIcon from '../icons/ThumbsUpIcon.vue';
 
     const props = defineProps<{
         openModal: boolean
     }>()
 
+    const onProceedToCheckout = () => {router.push('/OrderSummary')}
 </script>
 
 <template>
@@ -16,7 +18,7 @@ import ThumbsUpIcon from '../icons/ThumbsUpIcon.vue';
             <p class="text-sm text-gray-400">What do you want to do now?</p>
 
             <div class="mt-8 text-center form-control gap-y-4">
-                <button class="btn btn-primary rounded-2xl px-8">Proceed to Checkout</button>
+                <button @click="onProceedToCheckout" class="btn btn-primary rounded-2xl px-8">Proceed to Checkout</button>
                 <p class="font-medium text-primary text-sm">Add More</p>
             </div>
         </div>
