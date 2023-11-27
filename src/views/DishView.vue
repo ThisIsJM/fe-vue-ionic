@@ -88,7 +88,7 @@ import AddSuccessModal from '../components/dish/AddSuccessModal.vue'
 
             <div class="form-control gap-y-4">
                 <p class="text-xl font-medium">Add-Ons</p>
-                <AddOnsSelections :add-ons-items="order.addOns" v-model="order.addOns"/>
+                <AddOnsSelections v-model="order.addOns"/>
             </div>
         </div>
         <div class="fixed inset-x-0 bottom-5 px-5 w-full block">
