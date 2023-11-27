@@ -12,9 +12,12 @@ import { beverages } from '../utils/constants';
 import { Beverage } from '../models/Beverage';
 import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
 import AddSuccessModal from '../components/dish/AddSuccessModal.vue'
+import router from '../router';
 
     const route = useRoute()
     const id: number = Number(route.params.id)
+
+    const onNavigateBack = () => {router.go(-1)}
 
     const dish = ref<Dish>(getDishById(id))
     const addOns = getDishAddOns(dish.value.addOnIds)
@@ -41,7 +44,7 @@ import AddSuccessModal from '../components/dish/AddSuccessModal.vue'
     <div class="p-5">
         <div className="flex flex-row items-center">
             <div className="flex-none">
-                <button class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-gray-600">
+                <button @click="onNavigateBack" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-gray-600">
                     <LeftArrowIcon/>
                 </button>
             </div>
