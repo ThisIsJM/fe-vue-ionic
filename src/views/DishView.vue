@@ -3,7 +3,6 @@ import { useRoute } from 'vue-router';
 import { Dish } from '../models/Dish';
 import { getDishAddOns, getDishById } from '../controllers/DishController';
 import { computed, reactive, ref, watch } from 'vue';
-import LeftArrowIcon from '../components/icons/LeftArrowIcon.vue';
 import ShopIcon from '../components/icons/ShopIcon.vue';
 import Ratings from '../components/Ratings.vue';
 import {beverageSize} from '../utils/constants'
@@ -12,14 +11,12 @@ import { beverages } from '../utils/constants';
 import { Beverage } from '../models/Beverage';
 import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
 import AddSuccessModal from '../components/dish/AddSuccessModal.vue'
-import router from '../router';
 import { useOrderStore } from '../stores/OrderStore'
+import BackButton from '../components/BackButton.vue';
 
     const route = useRoute()
     const orderStore = useOrderStore()
     const id: number = Number(route.params.id)
-
-    const onNavigateBack = () => {router.go(-1)}
 
     const dish = ref<Dish>(getDishById(id))
     const addOns = getDishAddOns(dish.value.addOnIds)
@@ -49,9 +46,7 @@ import { useOrderStore } from '../stores/OrderStore'
     <div class="p-5">
         <div className="flex flex-row items-center">
             <div className="flex-none">
-                <button @click="onNavigateBack" class="btn btn-xs h-8 w-8 btn-gray-400 rounded-xl text-gray-600">
-                    <LeftArrowIcon/>
-                </button>
+                <BackButton/>
             </div>
             <p className="grow ml-5 text-2xl font-semibold">
                 {{dish.type}}
