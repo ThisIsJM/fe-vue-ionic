@@ -13,7 +13,7 @@ import ThumbsUpIcon from '../icons/ThumbsUpIcon.vue';
     <dialog id="my_modal_1" class="modal px-5" :class="{'modal-open': props.openModal}">
     <div className="modal-box p-10">
         <div class="form-control items-center gap-y-1">
-            <ThumbsUpIcon class=" w-20 h-20 mx-auto mb-4"/>
+            <ThumbsUpIcon class=" w-20 h-20 min-w-[5rem] min-h-[5rem] mx-auto mb-4"/>
             <p class="font-medium">Successfully Added!</p>
             <p class="text-sm text-gray-400">What do you want to do now?</p>
 
