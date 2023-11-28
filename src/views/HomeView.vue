@@ -13,7 +13,7 @@ import { IonIcon, } from '@ionic/vue';
 import { search } from "ionicons/icons"
 
     const user = useUserStore()
-    const imageUrl = ref<string>(user.image)
+    const info = user.personalInformation
 
 </script>
 
@@ -27,12 +27,12 @@ import { search } from "ionicons/icons"
                 <PointsDisplay class=" items-start"/>
             </div>
             <div className="flex-none mt-3">
-                <img className="h-10 w-10 rounded-full" :src="imageUrl" alt="Profile Picture" width="20" height="20">
+                <img className="h-10 w-10 rounded-full" :src="info.profileImage" alt="Profile Picture" width="20" height="20">
             </div>
         </div>
 
         <div class="my-5">
-            <MessageHeader/>
+            <MessageHeader :name="info.name"/>
         </div>
 
         <div>
