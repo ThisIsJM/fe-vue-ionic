@@ -1,5 +1,6 @@
 import type { AddOn } from "@/models/AddOn";
 import type { Dish } from "@/models/Dish";
+import type { User } from "@/models/User";
 
 export const generateRandomImage= (name: string = `food-${ Math.floor(Math.random() * 100) + 1}`) => `https://source.unsplash.com/random/?${name}` 
 
@@ -65,3 +66,25 @@ export const addOns: AddOn[] = [
     type: "Cheese", // Add the type property
   },
 ];
+
+export const user: User = {
+  id: 0,
+  username: 'chou.tzu-yu@email.com',
+  password: '',
+  information: {
+    name: 'Chou Tzuyu',
+    email: 'chou.tzu-yu@email.com',
+    phoneNo: '+63 912 345 6789',
+    profileImage: 'https://source.unsplash.com/random/?face',
+    addresses: [
+      {
+        name: 'My Home Address',
+        location: 'No. 21 St. Agusting Street, Brgy. De Jose Delgado City 2234 Philippines'
+      },
+      {
+        name: 'Work/Office',
+        location: '3rd flr Anyeong Bldf Seareal St. Joaqin City 3456 Philippines'
+      }
+    ]
+  }
+}
