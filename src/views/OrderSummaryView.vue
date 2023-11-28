@@ -5,6 +5,7 @@ import BackButton from '../components/BackButton.vue';
 import UserInformation from '../components/order_summary/UserInformation.vue'
 import AddressSelection from '../components/order_summary/AddressSelection.vue';
 import { PersonalInformation } from '../models/PersonalInformation';
+import CardBody from '../components/CardBody.vue'
 
     const userStore = useUserStore();
     const userInfo = reactive<PersonalInformation>(userStore.personalInformation)
@@ -18,9 +19,13 @@ import { PersonalInformation } from '../models/PersonalInformation';
             <p class="text-2xl font-medium">Order Summary</p>
         </div>
         <div class="mt-10 form-control gap-y-2" v-if="userInfo !== undefined">
-            <UserInformation :information="userInfo"/>
+            <CardBody>
+                <UserInformation :information="userInfo"/>
+            </CardBody>
             <AddressSelection :addresses="userInfo.addresses"/>
         </div>
-
+        <div>
+            <p class="text-xl font-medium mt-4">Orders</p>
+        </div>
     </div>
 </template>
