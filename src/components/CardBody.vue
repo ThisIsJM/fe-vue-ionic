@@ -16,9 +16,7 @@ import { ref } from 'vue';
       <div class="flex flex-row overflow-x-scroll gap-x-2 snap-x snap-mandatory" :onScroll="onCardScroll" ref="scrollContainer">
         <div class="flex flex-row w-full min-w-full snap-center">
             <div className="card grow w-[95%] min-w-[95%] bg-gray-300">
-                <div className="card-body p-5 text-gray-500 text-sm">
-                   <slot/>
-                </div>
+                <slot/>
             </div>
             <div class="relative right-1 flex items-center h-full text-secondary" :class="{'hidden': scrollOffset > 0}">
                 <KebabIcon class="h-16 w-9" />
