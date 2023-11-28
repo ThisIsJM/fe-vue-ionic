@@ -5,6 +5,8 @@ import type { User } from "@/models/User";
 
 export const generateRandomImage= (name: string = `food-${ Math.floor(Math.random() * 100) + 1}`) => `https://source.unsplash.com/random/?${name}` 
 
+export const generateOrderNo = () => Math.floor(10000000 + Math.random() * 90000000);
+
 export const dishTypeSelections = ['All','Breakfast', 'Chicken', 'Meat', 'Dessert']
 
 export const beverages = ['Coke', 'Sprite', 'Pepsi']
