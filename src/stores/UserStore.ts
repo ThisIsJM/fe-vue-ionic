@@ -10,7 +10,8 @@ export const useUserStore = defineStore("UserStore", {
 
     getters:{
         value: (state) => state,
-        personalInformation: (state) => state.user.information
+        personalInformation: (state) => state.user.information,
+        image: (state) => state.user.information.profileImage
     },
 
     actions:{

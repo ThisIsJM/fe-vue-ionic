@@ -8,19 +8,25 @@ import Categories from '../components/home/Categories.vue'
 import NewItems from '../components/home/NewItems.vue'
 import FoodSelection from '../components/home/FoodSelection.vue'
 import router from '../router';
+import { useUserStore } from '../stores/UserStore';
+import { ref } from 'vue';
+
+    const user = useUserStore()
+    const imageUrl = ref<string>(user.image)
+
 </script>
 
 <template>
     <div class="px-5 form-control gap-y-2 pb-10">
-        <div className="flex flex-row">
+        <div className="flex flex-row justify-between">
             <div className="flex-none mt-2">
                 <Sidebar/>
             </div>
-            <div className="grow mt-5">
-                <PointsDisplay/>
+            <div className=" mt-2">
+                <PointsDisplay class=" items-start"/>
             </div>
             <div className="flex-none mt-3">
-                <img className="h-10 w-10 rounded-full" src="https://source.unsplash.com/random/?face" alt="Girl in a jacket" width="20" height="20">
+                <img className="h-10 w-10 rounded-full" :src="imageUrl" alt="Girl in a jacket" width="20" height="20">
             </div>
         </div>
 
