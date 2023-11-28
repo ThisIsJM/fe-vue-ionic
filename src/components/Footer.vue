@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref, } from 'vue';
 
-    const isOpen = ref<boolean>(true)
+    const isOpen = ref<boolean>(false)
 
     onMounted(() => {
         window.addEventListener("keyboardDidShow", () => {  isOpen.value = true; console.log("Keyboard is open")});
