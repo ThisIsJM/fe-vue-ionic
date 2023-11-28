@@ -12,6 +12,8 @@ import { Order } from '../models/Order';
 import { useOrderStore } from '../stores/OrderStore';
 import { deliveryCharge } from '../utils/constants';
 import Footer from '../components/Footer.vue'
+import { sendOrder } from '../controllers/OrderController';
+import router from '../router';
 
     const orderStore = useOrderStore()
     const order = reactive<Order>(orderStore.value)
@@ -20,6 +22,11 @@ import Footer from '../components/Footer.vue'
     const userInfo = reactive<PersonalInformation>(userStore.personalInformation)
 
     const paymentAmount = ref<number>()
+    const onPlaceOrder = () => {
+        const success = sendOrder(order)
+
+        if(success) router.push(`/orderSuccess/${order.id}`)
+    }
 
 </script>
 
@@ -67,12 +74,12 @@ import Footer from '../components/Footer.vue'
     
     <Footer>
         <div class="flex flex-row p-2 justify-between bg-base-100">
-            <div class="form-control">
-                <p class="text-xs font-semibold">Grand Total</p>
-                <p>P {{ deliveryCharge + order.totalPrice }}</p>
+            <div class="form-control gap-y-1">
+                <p class="text-xs font-medium">Grand Total</p>
+                <p class="font-semibold">P {{  (deliveryCharge + order.totalPrice).toFixed(2) }}</p>
             </div>
             <div class="flex-grow pl-10">
-                <button class="btn h-full btn-primary rounded-xl mx-auto w-full max-w-sm">Place Order</button>
+                <button @click="onPlaceOrder" class="btn h-full btn-primary rounded-xl mx-auto w-full max-w-sm">Place Order</button>
             </div>
         </div>
     </Footer>

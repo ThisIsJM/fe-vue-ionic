@@ -5,7 +5,7 @@ import { getDishAddOns, getDishById } from '../controllers/DishController';
 import { computed, reactive, ref, watch } from 'vue';
 import ShopIcon from '../components/icons/ShopIcon.vue';
 import Ratings from '../components/Ratings.vue';
-import {beverageSize} from '../utils/constants'
+import {beverageSize, generateOrderNo} from '../utils/constants'
 import { Order, computeAddOnsPrice, computeDishPrice } from '../models/Order';
 import { beverages } from '../utils/constants';
 import { Beverage } from '../models/Beverage';
@@ -22,10 +22,11 @@ import BackButton from '../components/BackButton.vue';
     const addOns = getDishAddOns(dish.value.addOnIds)
 
     const order = reactive <Order>({
-      item:{ dish: dish.value, amount: 1 },
-      beverage: { name: 'Coke', size: 'Regular' },
-      addOns: addOns.map((addOn) => ({ addOn, amount: 0, totalPrice: 0 })),
-      totalPrice: dish.value.price * 1
+        id: generateOrderNo(),
+        item:{ dish: dish.value, amount: 1 },
+        beverage: { name: 'Coke', size: 'Regular' },
+        addOns: addOns.map((addOn) => ({ addOn, amount: 0, totalPrice: 0 })),
+        totalPrice: dish.value.price * 1
     })
 
     const onAmountAdd = () => {order.item.amount++}
@@ -80,7 +81,7 @@ import BackButton from '../components/BackButton.vue';
             </div>
 
             <div class="form-control gap-y-4">
-                <p class="text-xl font-medium">{{ order.totalPrice }}</p>
+                <p class="text-xl font-medium">Beverage</p>
                 <select v-model="order.beverage.name" className="select select-bordered w-full max-w-xs">
                     <option v-for="beverage in beverages">{{ beverage }}</option>
                 </select>

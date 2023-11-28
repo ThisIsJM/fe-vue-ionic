@@ -5,6 +5,7 @@ import HomeView from '@/views/HomeView.vue'
 import OrderView from '@/views/OrderView.vue'
 import DishView from '@/views/DishView.vue'
 import OrderSummaryView from '@/views/OrderSummaryView.vue'
+import OrderSuccessView from '@/views/OrderSuccessView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/OrderSummary',
       name: 'orderSummary',
       component: OrderSummaryView,
+    },
+    {
+      path: '/OrderSuccess/:id',
+      name: 'orderSuccess',
+      component: OrderSuccessView
     }
   ]
 })
