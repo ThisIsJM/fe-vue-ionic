@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SidebarProfile from './SidebarProfile.vue'
 import {navRoutes} from '../utils/navConstants'
+import router from '../router';
 import { IonIcon } from '@ionic/vue';
 
 </script>
@@ -22,7 +23,7 @@ import { IonIcon } from '@ionic/vue';
                 <SidebarProfile/>
                 <div class="form-control mt-5 gap-y-4">
                     <div v-for="(route, i) in navRoutes" class=" w-full">
-                        <div class="flex flex-row gap-x-4 items-center" >
+                        <div class="flex flex-row gap-x-4 items-center" @click="router.push(route.route ?? '')">
                             <template v-if="route.hasCustomIcon">
                                 <component :is="route.icon" class="w-6 h-6 text-gray-300"></component>
                             </template>
