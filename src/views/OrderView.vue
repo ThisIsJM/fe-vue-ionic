@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import Sidebar from '../components/Sidebar.vue';
 import ShopIcon from '../components/icons/ShopIcon.vue'
-import SearchIcon from '../components/icons/SearchIcon.vue'
-import SettingsIcon from '../components/icons/SettingsIcon.vue'
 import DishTypes from '../components/order/DishTypes.vue'
 import FoodSelection from '../components/home/FoodSelection.vue';
+import { IonIcon, } from '@ionic/vue';
+import { search, options } from "ionicons/icons"
+
 
 </script>
 
@@ -18,19 +19,19 @@ import FoodSelection from '../components/home/FoodSelection.vue';
                 Our Foods
             </p>
             <div className="flex-none">
-                <ShopIcon/>
+                <ShopIcon class="text-primary w-8 h-8"/>
             </div>
         </div>
         <div class="mt-5 flex flex-row">
             <div class="absolute">
                 <label class="relative top-4 left-3">
-                    <SearchIcon/>
+                    <ion-icon :icon="search" size="md" class="text-primary"></ion-icon>
                 </label>
             </div>
             <input type="text" placeholder="Try our new Beef Bibimbowl..." className="text-xs input h-14 input-bordered input-gray-600 w-full px-10" />
             <div class="absolute right-4">
                 <label class="relative top-4 right-3">
-                    <SettingsIcon/>
+                    <ion-icon :icon="options" size="md" class="text-primary"></ion-icon>
                 </label>
             </div>
         </div>

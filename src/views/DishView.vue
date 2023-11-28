@@ -54,7 +54,7 @@ import BackButton from '../components/BackButton.vue';
                 {{dish.type}}
             </p>
             <div className="flex-none">
-                <ShopIcon/>
+                <ShopIcon class="text-primary w-8 h-8"/>
             </div>
         </div>
 
