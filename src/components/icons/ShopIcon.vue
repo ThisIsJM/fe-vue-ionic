@@ -1,7 +1,6 @@
 <template>
-    <svg class="w-10 h-10" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0.0625 0.875C0.0625 0.391751 0.454251 0 0.9375 0H17.125C17.6082 0 18 0.391751 18 0.875V11.8125C18 12.2957 17.6082 12.6875 17.125 12.6875H0.9375C0.454251 12.6875 0.0625 12.2957 0.0625 11.8125V0.875Z" fill="#D91A2A"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.8125 14C17.0206 14 18 13.0206 18 11.8125C18 12.2957 17.6082 12.6875 17.125 12.6875H0.9375C0.454251 12.6875 0.0625 12.2957 0.0625 11.8125C0.0625 13.0206 1.04188 14 2.25 14H15.8125Z" fill="#7A0C15"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.9115 2.77359C12.9227 8.28088 5.01576 8.36826 3.14745 2.76335L3.97755 2.48665C5.56677 7.25431 12.3637 7.25281 14.0885 2.47641L14.9115 2.77359Z" fill="white"/>
+    <svg width="16" height="11" viewBox="0 0 16 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6">
+        <rect width="16" height="11" rx="1" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.764 2.29719C11.7753 7.80448 3.8683 7.89186 2 2.28694L2.8301 2.01024C4.41932 6.7779 11.2162 6.7764 12.9411 2L13.764 2.29719Z" fill="white"/>
     </svg>
 </template>
