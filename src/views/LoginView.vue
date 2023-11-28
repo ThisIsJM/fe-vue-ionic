@@ -5,7 +5,7 @@ import { User } from '../models/User'
 import {loginUser} from '../controllers/UserController'
 import router from '../router/index'
 
-    const user = ref<User>({id: 0, username:'', password:''})
+    const user = ref<{username: string, password: string}>({username:'', password:''})
 
     const submitHandler = async() => {
         await loginUser(user.value)
