@@ -1,11 +1,8 @@
 <script setup lang=ts>
-import { reactive } from 'vue';
-import { useOrderStore } from '../../stores/OrderStore';
-import CardBody from '../CardBody.vue';
 import { Order } from '../../models/Order';
+import CardBody from '../CardBody.vue';
 
-    const orderStore = useOrderStore()
-    const order = reactive<Order>(orderStore.value)
+    defineProps<{order: Order}>()
 
     const onAmountAdd = () => {}
     const onAmountSubtract = () => {}
