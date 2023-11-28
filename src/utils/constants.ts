@@ -1,6 +1,7 @@
 import type { AddOn } from "@/models/AddOn";
 import type { Dish } from "@/models/Dish";
 import type { PaymentOption as PaymentOption } from "@/models/Payment";
+import type { Reward } from "@/models/Reward";
 import type { User } from "@/models/User";
 
 export const generateRandomImage= (name: string = `food-${ Math.floor(Math.random() * 100) + 1}`) => `https://source.unsplash.com/random/?${name}` 
@@ -116,3 +117,10 @@ export const paymentOptions : PaymentOption[] = [
     description: 'Choose paynamics services available from you'
   }
 ]
+
+export const rewards: Reward[] = [
+  { id: 1, dishId: 1, type: 'Beginner', points: 10 },
+  { id: 2, dishId: 2, type: 'Intermediate', points: 20 },
+  { id: 3, dishId: 3, type: 'Loyal', points: 30 },
+  // Add more rewards as needed
+];
