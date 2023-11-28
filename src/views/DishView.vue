@@ -37,6 +37,7 @@ import BackButton from '../components/BackButton.vue';
 
     const openModal = ref<boolean>(false)
     const onAddToBag = () => {
+        order.addOns = order.addOns.filter(addOn => addOn.amount > 0);
         orderStore.fill(order)
         openModal.value = !openModal.value
     }
