@@ -22,7 +22,11 @@ import { Address } from '../../models/Address';
         <div class="flex flex-row w-full min-w-full snap-center">
             <div className="card grow w-[95%] min-w-[95%] bg-gray-300">
                 <div className="card-body p-5 text-gray-500 text-sm">
-                    <p class="text-black font-semibold">{{ address.name }}</p>
+                    <div class="flex flex-row align-bottom">
+                        <p class="text-black font-semibold">{{ address.name }}</p>
+                        <input type="radio" name="radio-2" className="relative radio radio-secondary radio-xs bg-white border-white checked:border-secondary" />
+                    </div>
+                   
                     <div class="mt-2">
                         <p>{{ address.location }}</p>
                     </div>
