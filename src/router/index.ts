@@ -6,6 +6,7 @@ import OrderView from '@/views/OrderView.vue'
 import DishView from '@/views/DishView.vue'
 import OrderSummaryView from '@/views/OrderSummaryView.vue'
 import OrderSuccessView from '@/views/OrderSuccessView.vue'
+import LoyaltyPointsView from '@/views/LoyaltyPointsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/OrderSuccess/:id',
       name: 'orderSuccess',
       component: OrderSuccessView
+    },
+    {
+      path: '/LoyaltyPoints',
+      name: 'loyaltyPoints',
+      component: LoyaltyPointsView
     }
   ]
 })
