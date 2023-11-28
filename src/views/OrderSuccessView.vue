@@ -13,7 +13,9 @@ import router from '../router';
 <template>
     <div class="p-5 form-control items-center text-center h-screen justify-between">
         <div>
-            <ThumbsUpIcon class=" w-48 h-full mx-auto flex pl-5"/>
+            <div class=" w-40 h-40 mt-10 mb-5 flex mx-auto">
+                <ThumbsUpIcon class=" w-full h-full flex pl-5"/>
+            </div>
             <p class="text-2xl font-semibold mb-5">Order Recieved!</p>
             <p class="text-xs text-gray-400 text-cente mx-1 leading-5">
                 Your order <span class="font-semibold text-primary">No. {{ orderNo }}</span> 
