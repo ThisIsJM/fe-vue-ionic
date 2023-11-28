@@ -11,6 +11,7 @@ import PaymentList from '../components/order_summary/PaymentList.vue';
 import { Order } from '../models/Order';
 import { useOrderStore } from '../stores/OrderStore';
 import { deliveryCharge } from '../utils/constants';
+import Footer from '../components/Footer.vue'
 
     const orderStore = useOrderStore()
     const order = reactive<Order>(orderStore.value)
@@ -63,4 +64,16 @@ import { deliveryCharge } from '../utils/constants';
             </div>
         </div>
     </div>
+    
+    <Footer>
+        <div class="flex flex-row p-2 justify-between bg-base-100">
+            <div class="form-control">
+                <p class="text-xs font-semibold">Grand Total</p>
+                <p>P {{ deliveryCharge + order.totalPrice }}</p>
+            </div>
+            <div class="flex-grow pl-10">
+                <button class="btn h-full btn-primary rounded-xl mx-auto w-full max-w-sm">Place Order</button>
+            </div>
+        </div>
+    </Footer>
 </template>
