@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { watch } from 'vue';
 import { AddOn } from '../../models/AddOn';
 
     const props = defineProps<{ modelValue: {
@@ -9,6 +10,8 @@ import { AddOn } from '../../models/AddOn';
 
     const onAmountAdd = () => {props.modelValue.amount++}
     const onAmountSubtract = () => {props.modelValue.amount > 0 && props.modelValue.amount--}
+
+    watch(() => props.modelValue.amount,() => props.modelValue.totalPrice = props.modelValue.addOn.price * props.modelValue.amount)
 </script>
 
 <template>

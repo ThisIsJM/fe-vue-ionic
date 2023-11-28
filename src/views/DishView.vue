@@ -6,7 +6,7 @@ import { computed, reactive, ref, watch } from 'vue';
 import ShopIcon from '../components/icons/ShopIcon.vue';
 import Ratings from '../components/Ratings.vue';
 import {beverageSize} from '../utils/constants'
-import { Order, computeDishPrice } from '../models/Order';
+import { Order, computeAddOnsPrice, computeDishPrice } from '../models/Order';
 import { beverages } from '../utils/constants';
 import { Beverage } from '../models/Beverage';
 import AddOnsSelections from '../components/dish/AddOnsSelections.vue'
@@ -33,7 +33,7 @@ import BackButton from '../components/BackButton.vue';
 
     const isSelectedSize = computed(() => (size) => size === order.beverage.size);
 
-    watch(() => order.item.amount, () => order.totalPrice = computeDishPrice(order.item))
+    watch([() => order.item.amount, () => order.addOns], () => order.totalPrice = computeDishPrice(order.item) + computeAddOnsPrice(order.addOns), {deep:true})
 
     const openModal = ref<boolean>(false)
     const onAddToBag = () => {
@@ -80,7 +80,7 @@ import BackButton from '../components/BackButton.vue';
             </div>
 
             <div class="form-control gap-y-4">
-                <p class="text-xl font-medium">Beverages</p>
+                <p class="text-xl font-medium">{{ order.totalPrice }}</p>
                 <select v-model="order.beverage.name" className="select select-bordered w-full max-w-xs">
                     <option v-for="beverage in beverages">{{ beverage }}</option>
                 </select>

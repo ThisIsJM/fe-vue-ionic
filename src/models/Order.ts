@@ -9,4 +9,7 @@ export  type Order={
     totalPrice: number
 }
 
-export const computeDishPrice = (item: {dish: Dish, amount: number}) => item.dish.price * item.amount 
+export const computeDishPrice = (item: {dish: Dish, amount: number}) => item.dish.price * item.amount
+
+export const computeAddOnsPrice = (addOns: {addOn: AddOn, amount: number, totalPrice: number}[]) => addOns.reduce((total, { totalPrice }) => total + totalPrice, 0);
+
