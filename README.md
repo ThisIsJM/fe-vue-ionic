@@ -2,7 +2,7 @@
 
 Frontend exam submission, Android mobile application developed using Vue Ionic and Capacitor
 
-#How to run
+## How to run
 
 ### install npm dependencies
 
